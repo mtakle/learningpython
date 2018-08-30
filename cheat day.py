@@ -45,13 +45,6 @@ calories_print = str(calories)
 print("Thermic effect of food: " + calories_by_tef_print)
 print("Total daily calories after tef: " + calories_print)
 
-#calories on fat, modifer + 10%
-#convert to grams
-
-
-
-
-
 
 
 
@@ -64,4 +57,14 @@ print("Non exercise activity thermogenesis: " + print_neat_expenditure)
 calories = calories - neat_expenditure
 calories_print = str(calories)
 
-print("Total daily calories after tdee: " + calories_print)
+print("Total daily calories after neat: " + calories_print)
+
+perc_fat = round(perc_fat * 100, 2)
+perc_fat_print = str(perc_fat)
+print("Calories consumed as fat: " + perc_fat_print + "%")
+perc_fat = round(perc_fat * 1.1, 2)
+perc_fat_print = str(perc_fat)
+print("Modified calories consumed as fat: " + perc_fat_print + "%")
+calories_as_weight = int((perc_fat / 100) * (cal_fat * fat))
+calories_as_weight_print = str(calories_as_weight)
+print("Worst case calories stored as fat: " + calories_as_weight_print)
