@@ -23,6 +23,7 @@ calories = (cal_prot*prot) + (cal_carb*carb) + (cal_fat*fat)
 calories_print = str(calories)
 
 print("Total daily calories: " + calories_print)
+input("Press ENTER to continue")
 
 tdee = input("Input total daily calorie expenditure: ")
 tdee = int(tdee)
@@ -30,6 +31,7 @@ calories = calories - tdee
 calories_print = str(calories)
 
 print("Total daily calories after tdee: " + calories_print)
+input("Press ENTER to continue")
 
 thermic_effect_prot = (tef_prot * perc_prot)
 thermic_effect_carb = (tef_carb * perc_carb)
@@ -50,6 +52,7 @@ print("Total daily calories after tef: " + calories_print)
 
 neat_factor = 100
 neat_expenditure = calories / 1000 * neat_factor
+neat_expenditure = int(neat_expenditure)
 print_neat_expenditure = str(neat_expenditure)
 
 print("Non exercise activity thermogenesis: " + print_neat_expenditure)
@@ -65,6 +68,12 @@ print("Calories consumed as fat: " + perc_fat_print + "%")
 perc_fat = round(perc_fat * 1.1, 2)
 perc_fat_print = str(perc_fat)
 print("Modified calories consumed as fat: " + perc_fat_print + "%")
-calories_as_weight = int((perc_fat / 100) * (cal_fat * fat))
+calories_as_weight = (perc_fat/100) * calories
+calories_as_weight = int(calories_as_weight)
 calories_as_weight_print = str(calories_as_weight)
 print("Worst case calories stored as fat: " + calories_as_weight_print)
+
+weight_in_grams = calories_as_weight / 9
+weight_in_grams = int(weight_in_grams)
+weight_in_grams_print = str(weight_in_grams)
+print("Worst case weight gain in grams: " + weight_in_grams_print + "g")
